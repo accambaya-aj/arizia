@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arizia — Healthy Filipino Meal Prep & Bento Delivery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <a href="#" class="brand"><span class="brand-dot"></span> Arizia</a>
+    <nav>
+      <a href="#todays-pick">Today's Pick</a>
+      <a href="#meal-plans">Weekly Plans</a>
+      <a href="#delivery-schedule">Delivery Schedule</a>
+      <button class="bag-btn" onclick="toggleCart()">Bento Box (<span id="bagCount">0</span>)</button>
+    </nav>
+  </header>
+
+  <!-- Split Hero Banner -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="tag-line">100% Healthy Filipino Bentos</span>
+      <h1>The Pinoy<br>Bento Bite.</h1>
+      <p>Macro-balanced Filipino favorites cooked with less oil, brown or adlai rice, and fresh local produce—delivered daily to your door.</p>
+      <div class="hero-cta-group">
+        <a href="#todays-pick" class="btn-coral">Order Now</a>
+        <a href="#delivery-schedule" class="btn-secondary">Schedule Delivery</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="plate-frame">
+        <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=80" alt="Healthy Filipino Chicken Inasal Bento">
+        <div class="floating-macro">
+          <strong>420 kcal • 38g Protein</strong>
+          <span>Bacolod Chicken Inasal Bento</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promo Strip -->
+  <div class="promo-wrap">
+    <div class="promo-strip">
+      <div>
+        <h3>Get 20% OFF Your First Bento Box</h3>
+        <p>Freshly prepped every morning in Metro Manila • Free delivery for 5-day plans.</p>
+      </div>
+      <span class="promo-code">USE CODE: ARIZIA20</span>
+    </div>
+  </div>
+
+  <!-- Today's Pick Bento Menu -->
+  <section id="todays-pick" class="section">
+    <div class="section-top">
+      <div>
+        <h2>Today's Pick</h2>
+        <p>Calorie-counted Filipino ulam paired with steamed red rice and roasted veggies.</p>
+      </div>
+
+      <div class="filter-pills">
+        <button class="pill active" onclick="filterMeals('all', this)">All Bentos</button>
+        <button class="pill" onclick="filterMeals('protein', this)">High Protein</button>
+        <button class="pill" onclick="filterMeals('lowcarb', this)">Low Carb</button>
+        <button class="pill" onclick="filterMeals('plant', this)">Plant-Based</button>
+      </div>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Bento 1 -->
+      <div class="bento-card" data-diet="protein">
+        <div class="bento-img">
+          <img src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80" alt="Grilled Chicken Inasal Bento">
+          <span class="kcal-badge">420 kcal • 38g P</span>
+        </div>
+        <div class="bento-body">
+          <span class="diet-tag">High Protein</span>
+          <h3>Grilled Chicken Inasal Bento</h3>
+          <p>Lemongrass-calamansi grilled chicken breast with heirloom red rice, atchara, and steamed okra.</p>
+          <div class="bento-footer">
+            <span class="price">₱235</span>
+            <button class="add-bento" onclick="addBento('Grilled Chicken Inasal Bento', 235)">+ Add Box</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento 2 -->
+      <div class="bento-card" data-diet="lowcarb">
+        <div class="bento-img">
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80" alt="Pan-Seared Bangus Belly">
+          <span class="kcal-badge">360 kcal • 32g P</span>
+        </div>
+        <div class="bento-body">
+          <span class="diet-tag">Low Carb • Keto-Friendly</span>
+          <h3>Garlic Calamansi Bangus Bento</h3>
+          <p>Boneless milkfish seared in olive oil over cauliflower adlai rice with ensaladang talong.</p>
+          <div class="bento-footer">
+            <span class="price">₱250</span>
+            <button class="add-bento" onclick="addBento('Garlic Calamansi Bangus Bento', 250)">+ Add Box</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento 3 -->
+      <div class="bento-card" data-diet="protein">
+        <div class="bento-img">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Lean Beef Tapa Bowl">
+          <span class="kcal-badge">450 kcal • 40g P</span>
+        </div>
+        <div class="bento-body">
+          <span class="diet-tag">High Protein</span>
+          <h3>Lean Sirloin Tapsilog Bento</h3>
+          <p>Grass-fed beef tapa marinated in coconut aminos with brown garlic rice and soft-boiled egg.</p>
+          <div class="bento-footer">
+            <span class="price">₱265</span>
+            <button class="add-bento" onclick="addBento('Lean Sirloin Tapsilog Bento', 265)">+ Add Box</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento 4 -->
+      <div class="bento-card" data-diet="plant">
+        <div class="bento-img">
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Tofu Mushroom Sisig Bento">
+          <span class="kcal-badge">380 kcal • 22g P</span>
+        </div>
+        <div class="bento-body">
+          <span class="diet-tag">Plant-Based</span>
+          <h3>Crispy Tofu & Mushroom Sisig</h3>
+          <p>Sizzling spiced tokwa and oyster mushrooms topped with calamansi, chili, and multigrain rice.</p>
+          <div class="bento-footer">
+            <span class="price">₱215</span>
+            <button class="add-bento" onclick="addBento('Crispy Tofu & Mushroom Sisig', 215)">+ Add Box</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Weekly Meal Prep Subscriptions -->
+  <section id="meal-plans" class="section">
+    <div class="section-top">
+      <div>
+        <h2>Weekly Meal Prep Plans</h2>
+        <p>Save up to 15% when you subscribe to a 5-day or 7-day healthy Filipino bento delivery.</p>
+      </div>
+    </div>
+
+    <div class="plans-grid">
+      <div class="plan-card">
+        <h3>3-Day Starter</h3>
+        <div class="plan-price">₱680 <span>/ 3 lunches</span></div>
+        <ul>
+          <li>3 Custom Filipino Bento Boxes</li>
+          <li>400–450 kcal per meal</li>
+          <li>Eco-friendly microwaveable trays</li>
+        </ul>
+        <button class="btn-coral" onclick="addBento('3-Day Starter Meal Plan', 680)">Select Plan</button>
+      </div>
+
+      <div class="plan-card popular">
+        <span class="popular-pill">Most Popular</span>
+        <h3>5-Day Workweek</h3>
+        <div class="plan-price">₱1,090 <span>/ 5 lunches</span></div>
+        <ul>
+          <li>5 Chef-Curated Pinoy Bentos</li>
+          <li>Free Metro Manila Morning Delivery</li>
+          <li>Custom rice swap (Red, Brown, or Adlai)</li>
+        </ul>
+        <button class="btn-coral" onclick="addBento('5-Day Workweek Meal Plan', 1090)">Select Plan</button>
+      </div>
+
+      <div class="plan-card">
+        <h3>Full Fitness Duo</h3>
+        <div class="plan-price">₱2,100 <span>/ 10 meals</span></div>
+        <ul>
+          <li>5 Lunches + 5 Dinners</li>
+          <li>High-Protein Macro Tracking Card</li>
+          <li>Free Chia & Calamansi Detox Drink</li>
+        </ul>
+        <button class="btn-coral" onclick="addBento('Full Fitness Duo (10 Meals)', 2100)">Select Plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom Delivery Schedule & Rice Preference Section -->
+  <section id="delivery-schedule" class="section">
+    <div class="delivery-box">
+      <div class="delivery-info">
+        <span class="pill-label">Personalized Prep</span>
+        <h2>Customize Your Delivery & Rice Base</h2>
+        <p>Every Arizia Filipino bento is cooked fresh on the morning of your delivery. Choose your preferred grain base, delivery window, and drop-off address below.</p>
+        <ul class="perks-list">
+          <li><strong>✓ Fresh Morning Dispatch:</strong> Cooked at 5:00 AM, delivered chilled or warm.</li>
+          <li><strong>✓ Healthy Grain Swaps:</strong> Choose Heirloom Red Rice, Brown Garlic Rice, or Low-Carb Adlai.</li>
+          <li><strong>✓ Metro Manila Coverage:</strong> BGC, Makati, Ortigas, Quezon City, & Manila.</li>
+        </ul>
+      </div>
+
+      <form id="scheduleForm" class="schedule-form">
+        <div class="form-row">
+          <div class="field-group">
+            <label for="custName">Full Name</label>
+            <input type="text" id="custName" placeholder="e.g., Sofia Reyes" required>
+          </div>
+          <div class="field-group">
+            <label for="custPhone">Mobile Number</label>
+            <input type="tel" id="custPhone" placeholder="0917 123 4567" required>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="custAddress">Delivery Address (Metro Manila)</label>
+          <input type="text" id="custAddress" placeholder="Unit / Street, Barangay, City (e.g., BGC, Taguig)" required>
+        </div>
+
+        <div class="form-row">
+          <div class="field-group">
+            <label for="startDate">Start Delivery Date</label>
+            <input type="date" id="startDate" required>
+          </div>
+          <div class="field-group">
+            <label for="timeSlot">Preferred Delivery Window</label>
+            <select id="timeSlot" required>
+              <option value="" disabled selected>Select Time Slot</option>
+              <option value="Morning (7:00 AM – 9:30 AM)">Morning (7:00 AM – 9:30 AM)</option>
+              <option value="Lunch (10:30 AM – 12:00 PM)">Lunch (10:30 AM – 12:00 PM)</option>
+              <option value="Evening Prep (5:00 PM – 7:00 PM)">Evening Prep (5:00 PM – 7:00 PM)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="riceType">Healthy Rice / Grain Base</label>
+          <select id="riceType" required>
+            <option value="Heirloom Red Rice (High Fiber)">Heirloom Red Rice (High Fiber)</option>
+            <option value="Brown Garlic Sinangag">Brown Garlic Sinangag</option>
+            <option value="Steamed Bukidnon Adlai (Low-Carb)">Steamed Bukidnon Adlai (Low-Carb)</option>
+            <option value="Cauliflower Rice (Keto)">Cauliflower Rice (Keto)</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="dietNotes">Allergies or Cooking Notes (Optional)</label>
+          <textarea id="dietNotes" rows="2" placeholder="e.g., No chili, extra calamansi, leave at lobby reception..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-coral">Save Delivery Schedule</button>
+        <div id="scheduleConfirm" class="schedule-confirm"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Slide-out Bento Order Bag -->
+  <div id="cartDrawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3>Your Arizia Order</h3>
+      <span class="close-cart" onclick="toggleCart()">×</span>
+    </div>
+    <div id="cartList" class="cart-list">
+      <p class="empty-note">Your bento box is empty. Add a meal to get started!</p>
+    </div>
+    <div class="cart-bottom">
+      <div class="promo-box">
+        <input type="text" id="promoInput" placeholder="Promo code (ARIZIA20)">
+        <button type="button" onclick="applyPromo()">Apply</button>
+      </div>
+      <div class="total-row">
+        <span>Total</span>
+        <span id="totalPrice">₱0</span>
+      </div>
+      <button class="btn-coral full-btn" onclick="checkoutOrder()">Place Delivery Order</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Arizia Healthy Filipino Meal Prep & Bento Delivery • Taguig, Metro Manila</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
